@@ -2,13 +2,12 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class Exercise3 {
 
     public void countWords(String text){
-        HashMap<String, String> myMap = new HashMap<>();
+        HashMap<String, Integer> myMap = new HashMap<>();
         String[] words = text.split(" ");
         int wordsCount = 1;
         for (int i = 0; i < (words.length - 1); i++) {
@@ -18,13 +17,14 @@ public class Exercise3 {
                 }
             }
             if(!myMap.containsKey(words[i])) {
-                myMap.put(words[i], Integer.toString(wordsCount));
+                myMap.put(words[i], wordsCount);
                 wordsCount = 1;
             }
         }
-        for(Map.Entry<String, String> entry: myMap.entrySet()){
-            System.out.println(entry.getKey() + " " + entry.getValue());
-        }
+
+        myMap.entrySet().stream()
+                .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
+        .forEach(e -> System.out.println(e.getKey() + " " + e.getValue()));
     }
 
     public String readFile(String filePath) {
