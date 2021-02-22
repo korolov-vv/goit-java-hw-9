@@ -4,10 +4,11 @@ import java.util.Arrays;
 
 public class Test {
     public static void main(String[] args) {
-        String filePathPhoneNumbers = "src/main/resources/PhonenUmbers.txt";
+        String filePathPhoneNumbers = "src/main/resources/PhoneNumbers.txt";
         String filePathWithPersons = "src/main/resources/Persons.txt";
         String filePathWithWords = "src/main/resources/Words.txt";
         new Exercise1().findAndPrintValidNumbers(filePathPhoneNumbers);
+        System.out.println("__________________________________");
 
         System.out.println("Exercise2. List of persons:");
         System.out.println(new Exercise2().readFileWithPersons(filePathWithPersons));

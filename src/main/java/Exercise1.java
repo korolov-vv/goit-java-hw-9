@@ -16,10 +16,9 @@ public class Exercise1 {
             while (phoneNumber != null) {
                 if (phoneNumberValidation(phoneNumber)) {
                     System.out.println(phoneNumber);
-                    phoneNumber = reader.readLine();
-                } else {
-                    phoneNumber = reader.readLine();
                 }
+                phoneNumber = reader.readLine();
+
             }
         } catch (IOException e) {
             System.err.println(e.getMessage());
