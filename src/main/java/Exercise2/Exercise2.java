@@ -32,14 +32,13 @@ public class Exercise2 {
             String personData = reader.readLine();
 
             while (personData != null) {
-                if (personData.isEmpty()) {
-                    personData = reader.readLine();
+                String[] personsDataArr = personData.split(" ");
+                if (!personData.isEmpty() &&
+                        (!personsDataArr[0].equals("name") ||
+                                !personsDataArr[1].equals("age"))) {
+                    setPerson(new Person(personsDataArr[0], personsDataArr[1]));
+                    getPersonsList().add(getPerson());
                 }
-                if (personData.split(" ")[0].equals("name") && personData.split(" ")[1].equals("age")) {
-                    personData = reader.readLine();
-                }
-                setPerson(new Person(personData.split(" ")[0], personData.split(" ")[1]));
-                getPersonsList().add(getPerson());
                 personData = reader.readLine();
             }
         } catch (IOException e) {
