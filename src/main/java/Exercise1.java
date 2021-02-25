@@ -18,7 +18,6 @@ public class Exercise1 {
                     System.out.println(phoneNumber);
                 }
                 phoneNumber = reader.readLine();
-
             }
         } catch (IOException e) {
             System.err.println(e.getMessage());
