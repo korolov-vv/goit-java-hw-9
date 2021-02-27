@@ -7,19 +7,15 @@ import java.util.*;
 public class Exercise3 {
 
     public void countWords(String text){
-        HashMap<String, Integer> myMap = new HashMap<>();
+        Map<String, Integer> myMap = new HashMap<>();
         String[] words = text.split(" ");
-        int wordsCount = 1;
-        for (int i = 0; i < (words.length - 1); i++) {
-            for (int j = (i + 1); j < words.length; j++) {
-                if(words[i].equals(words[j])){
-                    wordsCount++;
-                }
-            }
-            if(!myMap.containsKey(words[i])) {
-                myMap.put(words[i], wordsCount);
-                wordsCount = 1;
-            }
+
+        List<String> list = Arrays.asList(words.clone());
+
+        for(String word: list){
+            if (!myMap.containsKey(word)) {
+            myMap.put(word, Collections.frequency(list, word));
+        }
         }
 
         myMap.entrySet().stream()
@@ -35,7 +31,7 @@ public class Exercise3 {
             String line = reader.readLine();
 
             while (line != null){
-                stb.append(line + " ");
+                stb.append(line).append(" ");
                 line = reader.readLine();
             }
         } catch (IOException e) {
